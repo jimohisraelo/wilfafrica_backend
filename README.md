@@ -17,7 +17,7 @@ This is the backend for the WIFT Africa membership onboarding platform built wit
 
 ## ⚙️ Installation
 ```bash
-git clone <YOUR_REPO_URL>
+git clone https://github.com/jimohisraelo/wilfafrica_backend.git
 cd wiftafrica-backend
 composer install
 cp env .env
