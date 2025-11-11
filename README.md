@@ -1,68 +1,67 @@
-# CodeIgniter 4 Application Starter
 
-## What is CodeIgniter?
+# WIFT Africa Backend API
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+This is the backend for the WIFT Africa membership onboarding platform built with **CodeIgniter 4**.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🚀 Features
+- User registration & onboarding workflow
+- Chapters, Roles, and Specializations stored in database
+- Profile, Portfolio, Achievement, and Experience management
+- API-first design (ready for mobile & web frontend)
+- MySQL database with migrations + seeders
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 📦 Requirements
+- PHP 8+
+- Composer
+- MySQL 5.7+ / MariaDB
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## ⚙️ Installation
+```bash
+git clone <YOUR_REPO_URL>
+cd wiftafrica-backend
+composer install
+cp env .env
+php spark migrate
+php spark db:seed ChaptersSeeder
+php spark db:seed RolesSeeder
+```
 
-## Installation & updates
+## 🧪 Running Locally
+```bash
+php spark serve
+```
+API runs at:
+```
+http://localhost:8080
+```
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## 🗂 API Endpoints
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### **Auth & Onboarding**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register user |
+| POST | `/auth/login` | Login user |
+| GET | `/onboarding/chapters` | List chapters |
+| GET | `/onboarding/roles` | List roles |
+| GET | `/onboarding/specializations` | List specializations |
+| PUT | `/onboarding/roles` | Set Role & Specializations |
+| PUT | `/onboarding/chapter` | Select Chapter |
+| POST | `/onboarding/cv` | Upload Resume |
+| PUT | `/onboarding/links` | Add Links |
+| POST | `/onboarding/survey/submissions` | Submit Survey |
+| POST | `/onboarding/complete` | Complete Onboarding |
 
-## Setup
+---
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+## 🤝 Contributing
+```bash
+git checkout -b feature/my-feature
+git commit -m "feat: add new feature"
+git push origin feature/my-feature
+```
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## 📄 License
+Private Repository – Internal Use Only.
